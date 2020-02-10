@@ -19,7 +19,7 @@ class PageListView(ListView):
         return render(request, 'list.html', {
           'pages': pages, 
           'username': username, 
-          'auth': auth
+          'auth': auth,
         })
 
 class PageDetailView(DetailView):
@@ -36,5 +36,5 @@ class PageDetailView(DetailView):
         return render(request, 'page.html', {
           'page': page, 
           'username': username, 
-          'auth': auth
+          'auth': auth,
         })
