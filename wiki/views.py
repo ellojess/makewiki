@@ -12,8 +12,14 @@ class PageListView(ListView):
     def get(self, request):
         """ GET a list of Pages. """
         pages = self.get_queryset().all()
+        username = None
+        auth = request.user.is_authenticated
+        if auth: 
+          username = request.user.username
         return render(request, 'list.html', {
-          'pages': pages
+          'pages': pages, 
+          'username': username, 
+          'auth': auth
         })
 
 class PageDetailView(DetailView):
@@ -23,6 +29,12 @@ class PageDetailView(DetailView):
     def get(self, request, slug):
         """ Returns a specific wiki page by slug. """
         page = self.get_queryset().get(slug__iexact=slug)
+        username = None
+        auth = request.user.is_authenticated 
+        if auth: 
+          username = request.user.username
         return render(request, 'page.html', {
-          'page': page
+          'page': page, 
+          'username': username, 
+          'auth': auth
         })
