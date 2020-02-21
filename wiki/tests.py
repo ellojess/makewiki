@@ -38,6 +38,7 @@ class PageListViewTests(TestCase):
 
         # Issue a GET request to the MakeWiki homepage.
         # When we make a request, we get a response back.
+        # test route 
         response = self.client.get('/')
 
         # Check that the response is 200 OK.
